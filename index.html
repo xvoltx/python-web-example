@@ -35,9 +35,11 @@ for x in range(4):
             try:
                 # Esegui il codice Python nel browser
                 exec(user_code)
-                document["output"].text = "Codice eseguito correttamente!"
             except Exception as e:
                 document["output"].text = f"Errore nel codice: {e}"
+            
+            # Mostra il risultato nell'area di output
+            document["output"].text = "Codice eseguito correttamente!"
     </script>
 </body>
 </html>
