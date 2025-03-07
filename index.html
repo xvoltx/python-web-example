@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python in Browser with Brython</title>
-    <!-- Includi il file di Brython -->
+    <title>Python Code Editor</title>
+    <!-- Includi Brython -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
     <script type="text/javascript">
         window.onload = function() {
@@ -13,19 +13,31 @@
     </script>
 </head>
 <body onload="brython()">
-    <h1>Welcome to Python in the Browser</h1>
-
-    <!-- Interazione con Python usando Brython -->
-    <div>
-        <button id="calculate" onclick="calculate()">Click me to calculate 5 + 3</button>
-        <p id="result"></p>
-    </div>
+    <h1>Modifica il codice Python</h1>
+    
+    <!-- Editor di codice -->
+    <textarea id="code" rows="10" cols="50">
+for x in range(4):
+    print(y)
+    </textarea><br>
+    
+    <!-- Bottone per eseguire il codice -->
+    <button onclick="run_code()">Esegui Codice</button>
+    
+    <h2>Output</h2>
+    <pre id="output"></pre>
 
     <script type="text/python">
-        def calculate():
-            # Calcola e visualizza il risultato usando Python
-            result = 5 + 3
-            document["result"].text = f"Result: {result}"
+        def run_code():
+            # Ottieni il codice inserito dall'utente
+            user_code = document["code"].value
+            
+            try:
+                # Esegui il codice Python nel browser
+                exec(user_code)
+                document["output"].text = "Codice eseguito correttamente!"
+            except Exception as e:
+                document["output"].text = f"Errore nel codice: {e}"
     </script>
 </body>
 </html>
