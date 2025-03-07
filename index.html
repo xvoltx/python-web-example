@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python in Browser with Brython</title>
+    <!-- Includi il file di Brython -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            brython();  // Avvia Brython quando la pagina è caricata
+        }
+    </script>
+</head>
+<body onload="brython()">
+    <h1>Welcome to Python in the Browser</h1>
+
+    <!-- Interazione con Python usando Brython -->
+    <div>
+        <button id="calculate" onclick="calculate()">Click me to calculate 5 + 3</button>
+        <p id="result"></p>
+    </div>
+
+    <script type="text/python">
+        def calculate():
+            # Calcola e visualizza il risultato usando Python
+            result = 5 + 3
+            document["result"].text = f"Result: {result}"
+    </script>
+</body>
+</html>
